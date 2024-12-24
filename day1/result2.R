@@ -10,6 +10,10 @@ calc_similarity <- function(x, y) {
   for(i in 1:n) {
     result[i] <- sum(y[y == x[i]])
   }
+  # Some checks
+  if (min(result) < 0 ) {
+    warning("Result not calculated (-1 value)")
+  } 
   return(sum(result))
 }
 
