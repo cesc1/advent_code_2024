@@ -5,9 +5,7 @@ data <- rio::import("input.txt", setclass = "tibble")
 data
 
 # Part one
-calc_distances <- function(data) {
-  x <- data$V1
-  y <- data$V2
+calc_distances <- function(x, y) {
   n <- length(x)
   result <- integer(n) - 1
   
@@ -29,19 +27,4 @@ calc_distances <- function(data) {
   }
   return(sum(result))  
 }
-calc_distances(data) 
-
-# Part two
-calc_similarity <- function(data) {
-  x <- data$V1
-  y <- data$V2
-  n <- length(x)
-  result <- integer(n) - 1
-  
-  for(i in 1:n) {
-    result[i] <- sum(y[y == x[i]])
-  }
-  return(sum(result))
-}
-
-calc_similarity(data)
+calc_distances(data$V1, data$V2) 
