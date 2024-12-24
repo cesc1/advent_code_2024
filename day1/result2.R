@@ -1,4 +1,3 @@
-library(dplyr)
 library(rio)
 
 data <- rio::import("input.txt", setclass = "tibble")
